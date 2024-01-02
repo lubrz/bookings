@@ -53,7 +53,7 @@ while True:
 
     #prenotazione = datetime.datetime(day=res_day,month=res_month, year=today.year)
 
-    res_date = check_res_date(prenotazione)
+    res_date = check_res_date(res_room,res_name,prenotazione)
 
     #print(("La tua prenotazione e per il giorno {} del mese di {} dell'anno {}").format(res_day,res_month,today.year))
     userInput = input("\nThank you for using our booking system.\n\nPLease press 'R' to restart or 'X' to exit\n").capitalize()

@@ -49,54 +49,56 @@ def check_res_date(res_room,res_name, prenotazione):
     return 0
 
 room1 = {
-    dates : [0],
-    names : ['A'],
-    rcode : ['C'],
-    price : 295
+    'dates': [0],
+    'names': ['A'],
+    'rcode': ['C'],
+    'price': 295
 }
 
 room2 = {
-    dates : [0],
-    names : ['A'],
-    rcode : ['C'],
-    price : 295
+    'dates': [0],
+    'names': ['A'],
+    'rcode': ['C'],
+    'price': 295
 }
 
 room3 = {
-    dates : [0],
-    names : ['A'],
-    rcode : ['C'],
-    price : 295
+    'dates': [0],
+    'names': ['A'],
+    'rcode': ['C'],
+    'price': 295
 }
 
 def booking(room, name, rdate):
     if room == 1:
-        if rdate in room1[dates]:
+        if rdate in room1['dates']:
             print("Mi dispiace la stanza 1 non é disponibile per il GMA, scegliere un'altra data o giorno")
             return 0
         else:
             res = addbooking(room, name, rdate)
     elif room == 2:
-        if rdate in room2[dates]:
+        if rdate in room2['dates']:
             print("Mi dispiace la stanza 2 non é disponibile per il GMA, scegliere un'altra data o giorno")
             return 0
         else:
            res = addbooking(room, name, rdate)
     elif room == 3:
-        if rdate in room3[dates]:
+        if rdate in room3['dates']:
             print("Mi dispiace la stanza 1 non é disponibile per il GMA, scegliere un'altra data o giorno")
             return 0
         else:
            res = addbooking(room, name, rdate)
     return res
 
-def addbooking(n,name, date):
+def addbooking(n, name, rdate):
+    print(rdate)
+    print(name)
+    print(n)
+    r='room'+str(n)
+    r['dates'].append(rdate)
+    r['names'].append(name)
+    r['code'].append(name+rdate+"R0"+str(n))
     
-    r=room+str(n)
-    r[dates].append(date)
-    r[names].append(name)
-    r[code].append(name+str(date)+"R0"+str(n))
-    
-    rcode = name+str(date)+"R0"+str(n)
-    price = r[price]
+    rcode = name+str(rdate)+"R0"+str(n)
+    price = r['price']
     return rcode,price
